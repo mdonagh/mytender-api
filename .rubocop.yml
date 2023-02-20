@@ -1,0 +1,50 @@
+inherit_from:
+  - .rubocop_todo.yml
+  - ./rubocop/rubocop_rails.yml
+
+inherit_mode:
+  merge:
+    - Exclude
+
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - ./rubocop/rubocop
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - vendor/**/*
+    - .circleci/*
+    - db/schema.rb
+    - bin/bundle
+    - rubocop/**/*.rb
+
+Layout/LineLength:
+  Max: 100
+  Exclude:
+    - config/**/*
+
+Metrics/AbcSize:
+  Exclude:
+    - db/migrate/*
+    - app/channels/graphql_channel.rb
+
+Metrics/BlockLength:
+  Exclude:
+    - config/**/*
+    - spec/**/*
+    - lib/tasks/auto_annotate_models.rake
+
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/NumericLiterals:
+  Exclude:
+    - config/initializers/strong_migrations.rb
