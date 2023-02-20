@@ -1,0 +1,153 @@
+---
+
+### Generic smell configuration
+
+detectors:
+  Attribute:
+    enabled: true
+  BooleanParameter:
+    enabled: true
+  ClassVariable:
+    enabled: true
+  ControlParameter:
+    enabled: true
+    exclude:
+      - resolve
+  DataClump:
+    enabled: true
+    max_copies: 2
+    min_clump_size: 2
+  DuplicateMethodCall:
+    enabled: true
+    max_calls: 1
+  FeatureEnvy:
+    enabled: true
+    exclude:
+      - GraphqlRequestResolver#resolve_execute
+      - GraphqlRequestResolver#resolve_multiplex
+      - GraphqlUtils::ParseErrorBetterPrinted#initialize
+  InstanceVariableAssumption:
+    enabled: false
+  IrresponsibleModule:
+    enabled: false
+  LongParameterList:
+    enabled: true
+    max_params: 3
+    overrides:
+      initialize:
+        max_params: 5
+  LongYieldList:
+    enabled: true
+    max_params: 3
+  ManualDispatch:
+    enabled: true
+  MissingSafeMethod:
+    enabled: false
+  ModuleInitialize:
+    enabled: true
+  NestedIterators:
+    enabled: true
+    ignore_iterators:
+      - tap
+    max_allowed_nesting: 1
+  NilCheck:
+    enabled: false
+  RepeatedConditional:
+    enabled: true
+    max_ifs: 2
+  SubclassedFromCoreClass:
+    enabled: true
+  TooManyConstants:
+    enabled: true
+    max_constants: 5
+  TooManyInstanceVariables:
+    enabled: true
+    max_instance_variables: 4
+  TooManyMethods:
+    enabled: true
+    max_methods: 15
+  TooManyStatements:
+    enabled: true
+    exclude:
+      - initialize
+    max_statements: 9
+  UncommunicativeMethodName:
+    enabled: true
+    reject:
+      - "/^[a-z]$/"
+      - "/[0-9]$/"
+      - "/[A-Z]/"
+  UncommunicativeModuleName:
+    accept:
+      - "/V[0-9]/"
+    enabled: true
+    reject:
+    - '/^.$/'
+    - '/[0-9]$/'
+    accept:
+    - "/V[0-9]/"
+  UncommunicativeParameterName:
+    enabled: true
+    reject:
+      - /^.$/
+      - "/[0-9]$/"
+      - "/[A-Z]/"
+      - /^_/
+  UncommunicativeVariableName:
+    accept:
+      - /^_$/
+      - e
+    enabled: true
+    reject:
+      - /^.$/
+      - "/[0-9]$/"
+      - "/[A-Z]/"
+  UnusedParameters:
+    enabled: true
+  UnusedPrivateMethod:
+    enabled: false
+  UtilityFunction:
+    enabled: true
+    exclude:
+      - Loaders::AssociationLoader#cache_key
+      - resolve
+    public_methods_only: false
+
+### Directory specific configuration
+
+directories:
+  app/graphql/query_analyzers/concerns:
+    UtilityFunction:
+      enabled: false
+  app/jobs:
+    FeatureEnvy:
+      enabled: false
+    UtilityFunction:
+      enabled: false
+  app/presenters:
+    FeatureEnvy:
+      enabled: false
+    UtilityFunction:
+      enabled: false
+  app/services:
+    FeatureEnvy:
+      enabled: false
+    UtilityFunction:
+      enabled: false
+  app/uploaders:
+    UtilityFunction:
+      enabled: false
+  db/migrate:
+    UtilityFunction:
+      enabled: false
+    FeatureEnvy:
+      enabled: false
+    TooManyStatements:
+      enabled: false
+    UncommunicativeVariableName:
+      enabled: false
+  "rubocop":
+    UtilityFunction:
+      enabled: false
+    FeatureEnvy:
+      enabled: false
