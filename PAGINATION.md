@@ -5,7 +5,7 @@ For cursor pagination, you need to define a connection for the model you are que
 
 For example if you need to return the collection of all the User records in the app:
 ```
-  field :users_connection, Types::CustomTypes::UserType.connection_type, null: false
+  field :users_connection, Types::CustomTypes::User.connection_type, null: false
 
   def users_connection
     User.all

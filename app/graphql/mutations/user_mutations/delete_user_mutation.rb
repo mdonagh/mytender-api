@@ -1,7 +1,7 @@
 module Mutations
   module UserMutations
     class DeleteUserMutation < Mutations::BaseMutation
-      field :user, Types::CustomTypes::UserType, null: false
+      field :user, Types::CustomTypes::User, null: false
 
       def resolve
         user = User.find(context[:current_user]&.id)

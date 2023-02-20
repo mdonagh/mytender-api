@@ -6,7 +6,7 @@ module Mutations
       argument :email, String, required: true
       argument :password, String, required: true
 
-      field :user, Types::CustomTypes::UserType, null: false
+      field :user, Types::CustomTypes::User, null: false
       field :token, String, null: false
 
       def resolve(**attributes)
