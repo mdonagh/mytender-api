@@ -6,7 +6,7 @@ module Mutations
       argument :email, String, required: false
       argument :password, String, required: false
 
-      field :user, Types::CustomTypes::UserType, null: false
+      field :user, Types::CustomTypes::User, null: false
 
       def resolve(**attributes)
         user = User.find(context[:current_user]&.id)

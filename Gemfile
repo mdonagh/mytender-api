@@ -9,6 +9,8 @@ gem 'pry'
 gem 'httparty'
 gem 'awesome_print'
 gem 'geocoder'
+gem 'search_object'
+
 gem 'search_object_graphql'
 
 gem 'bootsnap', '>= 1.4.2', require: false
