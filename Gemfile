@@ -4,10 +4,12 @@ ruby '2.7.6'
 # props to loop studio!
 # https://github.com/loopstudio/rails-graphql-api-boilerplate
 # from mark
+
 gem 'pry'
 gem 'httparty'
 gem 'awesome_print'
 gem 'geocoder'
+gem 'search_object_graphql'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rails', '~> 6.1.5'
