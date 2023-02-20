@@ -5,33 +5,23 @@
 #  id         :bigint           not null, primary key
 #  address    :string
 #  duration   :integer
-#  lat        :decimal(10, 2)   indexed
+#  latitude   :decimal(10, 2)   indexed => [longitude, start_time]
+#  longitude  :decimal(10, 2)   indexed => [latitude, start_time]
 #  notes      :string
 #  recurring  :boolean
-#  start_time :datetime         indexed
-#  upccode    :decimal(10, 2)   indexed
+#  start_time :datetime         indexed => [latitude, longitude]
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :bigint           indexed
 #
 # Indexes
 #
-#  index_shifts_on_lat         (lat)
-#  index_shifts_on_start_time  (start_time)
-#  index_shifts_on_upccode     (upccode)
-#  index_shifts_on_user_id     (user_id)
+#  index_shifts_on_latitude_and_longitude_and_start_time  (latitude,longitude,start_time)
+#  index_shifts_on_user_id                                (user_id)
 #
 
 class Shift < ApplicationRecord
-  has_secure_password
+  reverse_geocoded_by :latitude, :longitude
 
-  after_update :notify_subscriber_of_addition
-
-  validates :email, presence: true, uniqueness: true
-
-  private
-
-  def notify_subscriber_of_addition
-    RailsApiBoilerplateSchema.subscriptions.trigger('user_updated', {}, self)
-  end
+  belongs_to :user, optional: true
 end
