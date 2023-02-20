@@ -7,6 +7,7 @@ ruby '2.7.6'
 gem 'pry'
 gem 'httparty'
 gem 'awesome_print'
+gem 'geocoder'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rails', '~> 6.1.5'

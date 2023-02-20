@@ -23,13 +23,11 @@ ActiveRecord::Schema.define(version: 2023_02_20_202733) do
     t.boolean "recurring"
     t.integer "duration"
     t.datetime "start_time"
-    t.decimal "lat", precision: 10, scale: 2
-    t.decimal "upccode", precision: 10, scale: 2
+    t.decimal "latitude", precision: 10, scale: 2
+    t.decimal "longitude", precision: 10, scale: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["lat"], name: "index_shifts_on_lat"
-    t.index ["start_time"], name: "index_shifts_on_start_time"
-    t.index ["upccode"], name: "index_shifts_on_upccode"
+    t.index ["latitude", "longitude", "start_time"], name: "index_shifts_on_latitude_and_longitude_and_start_time"
     t.index ["user_id"], name: "index_shifts_on_user_id"
   end
 
