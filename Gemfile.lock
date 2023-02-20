@@ -227,6 +227,10 @@ GEM
     rubocop-rspec (2.11.1)
       rubocop (~> 1.19)
     ruby-progressbar (1.11.0)
+    search_object (1.2.5)
+    search_object_graphql (1.0.4)
+      graphql (> 1.8)
+      search_object (~> 1.2.2)
     sentry-rails (5.3.1)
       railties (>= 5.0)
       sentry-ruby-core (~> 5.3.1)
@@ -303,6 +307,7 @@ DEPENDENCIES
   rubocop (~> 1.30.1)
   rubocop-rails (~> 2.15.0)
   rubocop-rspec (~> 2.11.1)
+  search_object_graphql
   sentry-rails
   sentry-ruby
   shoulda-matchers (~> 5.1.0)
