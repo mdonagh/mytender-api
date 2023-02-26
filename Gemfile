@@ -1,9 +1,10 @@
 source 'https://rubygems.org'
-ruby '2.7.6'
+ruby '3.1.2'
 
 # props to loop studio!
 # https://github.com/loopstudio/rails-graphql-api-boilerplate
 # from mark
+gem 'net-smtp', require: false
 
 gem 'pry'
 gem 'httparty'
