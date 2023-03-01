@@ -22,6 +22,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true, uniqueness: true
 
+  has_many_attached :images
+
   private
 
   def notify_subscriber_of_addition
