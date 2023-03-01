@@ -1,6 +1,6 @@
 module Mutations
-  module UserMutations
-    class UpdateUserMutation < Mutations::BaseMutation
+  module User
+    class Update < Mutations::BaseMutation
       argument :first_name, String, required: false
       argument :last_name, String, required: false
       argument :email, String, required: false

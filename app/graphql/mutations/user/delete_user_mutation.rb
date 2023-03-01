@@ -1,6 +1,6 @@
 module Mutations
-  module UserMutations
-    class DeleteUserMutation < Mutations::BaseMutation
+  module User
+    class Delete < Mutations::BaseMutation
       field :user, Types::CustomTypes::User, null: false
 
       def resolve
