@@ -6,28 +6,20 @@ describe 'Update user mutation request', type: :request do
   end
 
   let!(:user) { create(:user) }
-  let(:first_name) { 'Obi Wan' }
-  let(:last_name) { 'Kenobi' }
   let(:email) { 'obikenobi@rebel.com' }
   let(:password) { 'abcd1234' }
   let(:request_body) do
     <<~GQL
       mutation UpdateUser(
-        $firstName: String,
-        $lastName: String,
         $email: String,
         $password: String
       ) {
         updateUser(input: {
-          firstName: $firstName,
-          lastName: $lastName,
           email: $email,
           password: $password
         }) {
           user {
             id
-            firstName
-            lastName
             email
           }
         }
@@ -36,8 +28,6 @@ describe 'Update user mutation request', type: :request do
   end
   let(:request_variables) do
     {
-      firstName: first_name,
-      lastName: last_name,
       email: email,
       password: password
     }
@@ -70,8 +60,6 @@ describe 'Update user mutation request', type: :request do
 
       expect(response_content[:user]).to include_json(
         id: updated_user.id.to_s,
-        firstName: updated_user.first_name,
-        lastName: updated_user.last_name,
         email: updated_user.email
       )
     end

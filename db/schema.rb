@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_26_233206) do
+ActiveRecord::Schema.define(version: 2023_03_01_025449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -60,8 +60,6 @@ ActiveRecord::Schema.define(version: 2023_02_26_233206) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
     t.string "password_digest"
     t.citext "email", null: false
     t.datetime "created_at", precision: 6, null: false

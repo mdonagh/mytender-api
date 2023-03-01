@@ -1,8 +1,6 @@
 module Mutations
   module User
     class Create < Mutations::BaseMutation
-      argument :first_name, String, required: true
-      argument :last_name, String, required: true
       argument :email, String, required: true
       argument :password, String, required: true
 
