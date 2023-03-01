@@ -11,9 +11,7 @@ gem 'pry'
 gem 'httparty'
 gem 'awesome_print'
 gem 'geocoder'
-gem 'search_object'
-
-gem 'search_object_graphql'
+gem 'apollo_upload_server'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rails', '~> 6.1.5'
