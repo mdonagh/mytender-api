@@ -1,6 +1,6 @@
 module Mutations
-  module UserMutations
-    class SignInUserMutation < Mutations::BaseMutation
+  module User
+    class SignIn < Mutations::BaseMutation
       argument :email, String, required: true
       argument :password, String, required: true
 
