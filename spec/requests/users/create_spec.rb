@@ -3,8 +3,6 @@ require 'rails_helper'
 describe 'Create user mutation request', type: :request do
   subject(:request) { graphql_request(mutation_request, variables: request_variables) }
 
-  let(:first_name) { 'Obi Wan' }
-  let(:last_name) { 'Kenobi' }
   let(:email) { 'obikenobi@rebel.com' }
   let(:password) { 'abcd1234' }
 
@@ -12,15 +10,11 @@ describe 'Create user mutation request', type: :request do
     <<~GQL
       mutation SignUp(
         $email: String!,
-        $password: String!,
-        $firstName: String!,
-        $lastName: String!
+        $password: String!
       ) {
         createUser(input: {
           email: $email,
-          password: $password,
-          firstName: $firstName,
-          lastName: $lastName
+          password: $password
         }) {
           user {
             id
@@ -36,8 +30,6 @@ describe 'Create user mutation request', type: :request do
 
   let(:request_variables) do
     {
-      firstName: first_name,
-      lastName: last_name,
       email: email,
       password: password
     }
@@ -71,8 +63,6 @@ describe 'Create user mutation request', type: :request do
 
       expect(response_content[:user]).to include_json(
         id: created_user.id.to_s,
-        firstName: created_user.first_name,
-        lastName: created_user.last_name,
         email: created_user.email
       )
     end
