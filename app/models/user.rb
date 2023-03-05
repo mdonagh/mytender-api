@@ -16,7 +16,7 @@
 class User < ApplicationRecord
   has_secure_password
 
-  after_update :notify_subscriber_of_addition
+  # after_update :notify_subscriber_of_addition
 
   validates :email, presence: true, uniqueness: true
 

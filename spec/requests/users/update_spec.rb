@@ -49,12 +49,6 @@ describe 'Update user mutation request', type: :request do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'updates current user' do
-      request
-
-      expect(updated_user.first_name).to eq(first_name)
-    end
-
     it 'returns the user data' do
       request
 

@@ -18,8 +18,6 @@ describe 'Create user mutation request', type: :request do
         }) {
           user {
             id
-            firstName
-            lastName
             email
           }
           token

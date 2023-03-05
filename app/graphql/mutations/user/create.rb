@@ -8,7 +8,7 @@ module Mutations
       field :token, String, null: false
 
       def resolve(**attributes)
-        user = User.create!(attributes)
+        user = ::User.create!(attributes)
         token = AuthToken.token(user)
 
         { user: user, token: token }

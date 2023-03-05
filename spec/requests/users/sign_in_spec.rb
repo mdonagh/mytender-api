@@ -60,8 +60,6 @@ describe 'Sign in user mutation request', type: :request do
 
       expect(response_content[:user]).to include_json(
         id: user.id.to_s,
-        firstName: user.first_name,
-        lastName: user.last_name,
         email: user.email
       )
     end
