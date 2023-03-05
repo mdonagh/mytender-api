@@ -7,10 +7,10 @@ module Mutations
       field :user, Types::CustomTypes::User, null: true
       field :token, String, null: true
 
-      def resolve(email:, password:)
-        user = ::User.find_by(email: email)
+      def resolve(**attributes)
+        user = ::User.find_by(email: attributes[:email])
 
-        unless user&.authenticate(password)
+        unless user&.authenticate(attributes[:password])
           raise GraphQL::ExecutionError, I18n.t('errors.invalid_credentials')
         end
 
