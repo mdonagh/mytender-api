@@ -12,6 +12,10 @@ module GraphqlRequestResolver
   private
 
   def resolve_execute(query, context)
+    pp query[:operationName]
+    pp query
+    pp context
+
     RailsApiBoilerplateSchema.execute(
       query[:query],
       operation_name: query[:operationName],
