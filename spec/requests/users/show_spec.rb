@@ -8,8 +8,6 @@ describe 'Show current user request', type: :request do
       query {
         user {
           id
-          firstName
-          lastName
           email
         }
       }
@@ -38,8 +36,6 @@ describe 'Show current user request', type: :request do
 
       expect(json.dig(:data, :user)).to include_json(
         id: user.id.to_s,
-        firstName: user.first_name,
-        lastName: user.last_name,
         email: user.email
       )
     end

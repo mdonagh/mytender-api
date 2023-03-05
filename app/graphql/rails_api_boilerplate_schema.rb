@@ -7,7 +7,7 @@ class RailsApiBoilerplateSchema < GraphQL::Schema
   # disable_introspection_entry_points unless GraphqlConfig::EXPOSE_API_INSIGHTS
   # disable_introspection_entry_points
 
-  use GraphQL::Subscriptions::ActionCableSubscriptions, redis: Redis.new
+  # use GraphQL::Subscriptions::ActionCableSubscriptions, redis: Redis.new
   use GraphQL::Batch
   query_analyzer QueryAnalyzers::QueryComplexityAnalyzer
   query_analyzer QueryAnalyzers::QueryDepthAnalyzer
