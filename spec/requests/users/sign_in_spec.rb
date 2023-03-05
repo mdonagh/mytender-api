@@ -16,8 +16,6 @@ describe 'Sign in user mutation request', type: :request do
         signInUser(input: {email: $email, password: $password}) {
           user {
             id
-            firstName
-            lastName
             email
           }
           token
