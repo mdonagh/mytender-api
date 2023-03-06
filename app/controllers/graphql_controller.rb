@@ -10,6 +10,8 @@ class GraphqlController < ApplicationController
   private
 
   def context
+    ap current_user
+    ap request.headers
     { current_user: current_user }
   end
 end
