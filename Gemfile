@@ -18,7 +18,7 @@ gem 'rails', '~> 6.1.5'
 
 # WebServer
 gem 'puma', '~> 5.6'
-gem 'rack-cors', '~> 1.1.1'
+gem 'rack-cors', '~> 2.0.1'
 
 # Graphql
 gem 'graphql', '~> 2.0.11'
