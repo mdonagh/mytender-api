@@ -7,5 +7,7 @@ module Types
 
     field :create_shift, mutation: Mutations::Shift::Create
     field :delete_shift, mutation: Mutations::Shift::Delete
+
+    field :create_photo, mutation: Mutations::Photo::Create
   end
 end
