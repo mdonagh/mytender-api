@@ -1,6 +1,10 @@
 require_relative 'boot'
+require 'dotenv'
 
 require 'rails'
+
+require 'dotenv'
+
 # Pick the frameworks you want:
 require 'active_model/railtie'
 require 'active_job/railtie'
@@ -21,7 +25,8 @@ Bundler.require(*Rails.groups)
 
 module RailsApiBoilerplate
   class Application < Rails::Application
-    Dotenv.load(Rails.root.join("env", "#{Rails.env}.env")
+
+    Dotenv.load(Rails.root.join("env", ".env.#{Rails.env}"))
 
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
