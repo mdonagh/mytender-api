@@ -3,7 +3,6 @@ class GraphqlController < ApplicationController
 
   def execute
     result = resolve(query: params, context: context)
-
     render json: result
   end
 
@@ -12,6 +11,6 @@ class GraphqlController < ApplicationController
   def context
     ap current_user
     ap request.headers
-    { current_user: current_user }
+    { user: current_user }
   end
 end
