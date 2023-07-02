@@ -32,6 +32,7 @@
 .env
 coverage
 .DS_Store
-*.env*
 *.env
-.env.development
+*.env.example
+*.env.local
+*.env.staging
