@@ -36,3 +36,5 @@ coverage
 *.env.example
 *.env.local
 *.env.staging
+/env/*
+/env

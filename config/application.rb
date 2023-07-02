@@ -21,6 +21,8 @@ Bundler.require(*Rails.groups)
 
 module RailsApiBoilerplate
   class Application < Rails::Application
+    Dotenv.load(Rails.root.join("env", "#{Rails.env}.env")
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
