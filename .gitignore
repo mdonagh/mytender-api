@@ -32,3 +32,6 @@
 .env
 coverage
 .DS_Store
+*.env*
+*.env
+.env.development
