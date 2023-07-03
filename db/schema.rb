@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_02_223759) do
+ActiveRecord::Schema.define(version: 2023_07_03_014423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2023_07_02_223759) do
     t.bigint "user_id"
     t.integer "kind"
     t.datetime "created_at", null: false
+    t.integer "bytes"
     t.index ["user_id"], name: "index_photos_on_user_id"
   end
 

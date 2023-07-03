@@ -2,23 +2,23 @@ require 'aws-sdk-s3'
 
 module Mutations
   module Photo
-    class Create < Mutations::BaseMutation
-      argument :filename, String, required: false
-      argument :byte_size, Int, required: false
-      argument :checksum, String, required: false
-      argument :content_type, String, required: false
 
-      field :presigned, Types::CustomTypes::Presigned, null: true
+    class Kind < Types::BaseEnum
+      value "BANNER",
+      value "HEADSHOT",
+    end
+
+    class Create < Mutations::BaseMutation
+      argument :kind, Kind, required: true
+      argument :bytes, Int, required: true
+
+      field :url, String, null: true
 
       def resolve(**attributes)
-        binding.pry
-
-        { presigned: {
-            url: url,
-            headers: {a: 'b'},
-            signed_id: 'a'
-          }
-        }
+        photo = Photo.create(user: context[:user],
+                             kind: kind.downcase.to_sym,
+                             bytes: bytes)
+        { url: photo.presigned_url }
       end
     end
   end

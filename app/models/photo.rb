@@ -3,6 +3,7 @@
 # Table name: photos
 #
 #  id         :bigint           not null, primary key
+#  bytes      :integer
 #  kind       :integer
 #  created_at :datetime         not null
 #  user_id    :bigint           indexed
