@@ -4,8 +4,8 @@ module Mutations
   module Photo
 
     class Kind < Types::BaseEnum
-      value "BANNER",
-      value "HEADSHOT",
+      value "BANNER"
+      value "HEADSHOT"
     end
 
     class Create < Mutations::BaseMutation
@@ -15,9 +15,9 @@ module Mutations
       field :url, String, null: true
 
       def resolve(**attributes)
-        photo = Photo.create(user: context[:user],
-                             kind: kind.downcase.to_sym,
-                             bytes: bytes)
+        photo = ::Photo.create(user: context[:user],
+                             kind: arguments[:kind].downcase.to_sym,
+                             bytes: arguments[:bytes])
         { url: photo.presigned_url }
       end
     end

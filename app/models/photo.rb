@@ -15,6 +15,8 @@
 class Photo < ApplicationRecord
   enum status: [ :headshot, :banner ]
 
+  belongs_to :user
+
   def presigned_url
     s3 = Aws::S3::Client.new(
       region:               'us-east-1',
