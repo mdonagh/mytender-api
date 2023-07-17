@@ -7,6 +7,8 @@ module Queries
         raise "Must specify location or personal shifts"
       end
 
+      puts "GOT HERE"
+      puts near
       if near.any?
         Shift.near(near, 50)
       elsif personal

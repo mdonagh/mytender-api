@@ -7,8 +7,8 @@ class AddShifts < ActiveRecord::Migration[6.1]
       t.boolean :recurring
       t.integer :duration
       t.datetime :start_time
-      t.decimal :latitude, precision: 10, scale: 2
-      t.decimal :longitude, precision: 10, scale: 2
+      t.decimal :latitude, precision: 15, scale: 10
+      t.decimal :longitude, precision: 15, scale: 10
       t.timestamps
     end
 

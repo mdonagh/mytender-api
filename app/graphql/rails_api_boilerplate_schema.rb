@@ -1,8 +1,8 @@
 class RailsApiBoilerplateSchema < GraphQL::Schema
-  max_complexity 300
+  max_complexity 800
   default_page_size 100
   default_max_page_size 100
-  max_depth 300
+  max_depth 800
 
   # disable_introspection_entry_points unless GraphqlConfig::EXPOSE_API_INSIGHTS
   # disable_introspection_entry_points

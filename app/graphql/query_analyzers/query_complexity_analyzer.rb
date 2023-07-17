@@ -2,7 +2,7 @@ module QueryAnalyzers
   class QueryComplexityAnalyzer < GraphQL::Analysis::AST::QueryComplexity
     include Concerns::Introspectable
 
-    MAX_COMPLEXITY = ENV.fetch('MAX_COMPLEXITY', 300).to_i
+    MAX_COMPLEXITY = ENV.fetch('MAX_COMPLEXITY', 800).to_i
 
     def result
       return verify_introspection_availability if introspection?

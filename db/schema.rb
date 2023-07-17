@@ -31,8 +31,8 @@ ActiveRecord::Schema.define(version: 2023_07_03_014423) do
     t.boolean "recurring"
     t.integer "duration"
     t.datetime "start_time"
-    t.decimal "latitude", precision: 10, scale: 2
-    t.decimal "longitude", precision: 10, scale: 2
+    t.decimal "latitude", precision: 15, scale: 10
+    t.decimal "longitude", precision: 15, scale: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["latitude", "longitude", "start_time"], name: "index_shifts_on_latitude_and_longitude_and_start_time"

@@ -5,8 +5,8 @@ module Types
       field :user, Types::CustomTypes::User, null: true
       field :notes, String, null: true
       field :address, String, null: true
-      field :latitude, Float, null: true
-      field :longitude, Float, null: true
+      field :latitude, String, null: true, method: :lat_as_string
+      field :longitude, String, null: true, method: :long_as_string
       field :start_time, GraphQL::Types::ISO8601DateTime, null: true
     end
   end

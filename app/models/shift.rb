@@ -5,8 +5,8 @@
 #  id         :bigint           not null, primary key
 #  address    :string
 #  duration   :integer
-#  latitude   :decimal(10, 2)   indexed => [longitude, start_time]
-#  longitude  :decimal(10, 2)   indexed => [latitude, start_time]
+#  latitude   :decimal(15, 10)  indexed => [longitude, start_time]
+#  longitude  :decimal(15, 10)  indexed => [latitude, start_time]
 #  notes      :string
 #  recurring  :boolean
 #  start_time :datetime         indexed => [latitude, longitude]
@@ -24,4 +24,12 @@ class Shift < ApplicationRecord
   reverse_geocoded_by :latitude, :longitude
 
   belongs_to :user, optional: true
+
+  def lat_as_string
+    latitude.to_s
+  end
+
+  def long_as_string
+    longitude.to_s
+  end
 end

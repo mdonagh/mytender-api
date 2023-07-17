@@ -5,8 +5,8 @@
 #  id         :bigint           not null, primary key
 #  address    :string
 #  duration   :integer
-#  latitude   :decimal(10, 2)   indexed => [longitude, start_time]
-#  longitude  :decimal(10, 2)   indexed => [latitude, start_time]
+#  latitude   :decimal(15, 10)  indexed => [longitude, start_time]
+#  longitude  :decimal(15, 10)  indexed => [latitude, start_time]
 #  notes      :string
 #  recurring  :boolean
 #  start_time :datetime         indexed => [latitude, longitude]
