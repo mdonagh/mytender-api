@@ -3,7 +3,9 @@
 # Table name: users
 #
 #  id              :bigint           not null, primary key
+#  banner_url      :string
 #  email           :citext           not null, indexed
+#  headshot_url    :string
 #  password_digest :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -22,7 +24,6 @@ class User < ApplicationRecord
 
   has_many_attached :photos
   has_one_attached :avatar
-
 
   private
 

@@ -1,10 +1,9 @@
 module Types
   module CustomTypes
-    class User < Types::BaseObject
+    class Photo < Types::BaseObject
       field :id, ID, null: false
       field :email, String, null: false
-      field :banner_url, String, null: true
-      field :headshot_url, String, null: true
+      field :user, Types::CustomTypes::User, null: false
     end
   end
 end

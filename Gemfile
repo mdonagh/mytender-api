@@ -6,6 +6,7 @@ ruby '3.1.2'
 # from mark
 gem 'net-smtp', require: false
 gem "aws-sdk-s3", require: false
+gem 'httparty'
 
 gem 'pry'
 gem 'httparty'

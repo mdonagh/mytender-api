@@ -1,5 +1,5 @@
 class RailsApiBoilerplateSchema < GraphQL::Schema
-  max_complexity 800
+  max_complexity 1500
   default_page_size 100
   default_max_page_size 100
   max_depth 800

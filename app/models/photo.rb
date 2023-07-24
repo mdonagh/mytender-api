@@ -1,3 +1,4 @@
+require 'aws-sdk-s3'
 # == Schema Information
 #
 # Table name: photos
@@ -13,7 +14,17 @@
 #  index_photos_on_user_id  (user_id)
 #
 class Photo < ApplicationRecord
-  enum status: [ :headshot, :banner ]
+  enum kind: [ :headshot, :banner ]
+
+  after_create :denormalize_url
+
+  def denormalize_url
+    if headshot?
+      user.update(headshot_url: url)
+    elsif banner?
+      user.update(banner_url: url)
+    end
+  end
 
   belongs_to :user
 
@@ -26,12 +37,21 @@ class Photo < ApplicationRecord
 
     Aws::S3::Presigner.new(client: s3).presigned_url(
       :put_object,
-      bucket: 'mytender-bucket',
-      key: s3_key
+      bucket: bucket,
+      key: s3_key,
+      acl: "public-read"
     )
   end
 
   def s3_key
-    "#{Rails.env}/#{user_id}/#{self.class}/#{id}"
+    "#{Rails.env}/#{user_id}/#{self.class}-#{kind}-#{id}"
+  end
+
+  def url
+    "https://s3.amazonaws.com/#{bucket}/#{s3_key}"
+  end
+
+  def bucket
+    'mytender-bucket'
   end
 end

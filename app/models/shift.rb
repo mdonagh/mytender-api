@@ -23,7 +23,7 @@
 class Shift < ApplicationRecord
   reverse_geocoded_by :latitude, :longitude
 
-  belongs_to :user, optional: true
+  belongs_to :user
 
   def lat_as_string
     latitude.to_s
