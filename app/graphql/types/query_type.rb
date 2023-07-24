@@ -9,5 +9,9 @@ module Types
       argument :near, [Float], required: false
       argument :personal, Boolean, required: false
     end
+
+    field :shift, resolver: Queries::ShowShift do
+      argument :id, ID, required: true
+    end
   end
 end
