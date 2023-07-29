@@ -3,8 +3,6 @@ module UserRetriever
 
   def current_user
     @current_user ||= AuthToken.verify(token)
-    # remove below later when auth is complete
-    @current_user ||= User.last
     Current.user = @current_user
     @current_user
   end

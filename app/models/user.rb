@@ -4,8 +4,10 @@
 #
 #  id              :bigint           not null, primary key
 #  banner_url      :string
+#  description     :string
 #  email           :citext           not null, indexed
 #  headshot_url    :string
+#  kind            :integer
 #  password_digest :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
@@ -16,6 +18,8 @@
 #
 
 class User < ApplicationRecord
+  enum kind: [ :drinker, :bartender ]
+
   has_secure_password
 
   # after_update :notify_subscriber_of_addition
