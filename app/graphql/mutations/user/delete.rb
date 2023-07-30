@@ -4,7 +4,7 @@ module Mutations
       field :user, Types::CustomTypes::User, null: false
 
       def resolve
-        user = ::User.find(context[:current_user]&.id)
+        user = ::User.find(context[:user]&.id)
         user.destroy!
 
         { user: user }

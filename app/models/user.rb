@@ -28,6 +28,7 @@ class User < ApplicationRecord
 
   has_many_attached :photos
   has_one_attached :avatar
+  has_many :shifts
 
   private
 

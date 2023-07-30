@@ -6,7 +6,7 @@ module Mutations
       field :deleted, Boolean, null: true
 
       def resolve(id:)
-        shift = Shift.find!(id)
+        shift = ::Shift.find(id)
         shift.destroy!
         { deleted: true }
       end

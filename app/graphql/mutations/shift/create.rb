@@ -13,7 +13,7 @@ module Mutations
 
       def resolve(**attributes)
         params = attributes
-        params[:user_id] = context[:current_user].id
+        params[:user_id] = context[:user].id
         shift = ::Shift.create!(params)
         { shift: shift }
       end

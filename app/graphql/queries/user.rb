@@ -3,7 +3,7 @@ module Queries
     type Types::CustomTypes::User, null: true
 
     def resolve
-      context[:current_user]
+      context[:user]
     end
   end
 end
