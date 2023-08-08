@@ -2,6 +2,10 @@ module UserRetriever
   extend ActiveSupport::Concern
 
   def current_user
+    if "createUser" == JSON.parse(request.body.string)["operationName"]
+      return
+    end
+
     puts 'woof'
     puts token
     @current_user ||= AuthToken.verify(token)

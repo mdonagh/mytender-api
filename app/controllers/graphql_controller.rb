@@ -3,6 +3,7 @@ class GraphqlController < ApplicationController
 
   def execute
     pp params
+
     result = resolve(query: params, context: context)
     pp result
     render json: result

@@ -15,7 +15,7 @@ module Queries
         Seed.populate(latitude, longitude)
       end
 
-      result = Shift.near([latitude, longitude], 2, units: :km)
+      result = Shift.includes([:user]).near([latitude, longitude], 2, units: :km)
       # .where("start_time > ?", Time.now - 8.hours)
       # .where("start_time < ?", Time.now + 8.hours)
       ap result
