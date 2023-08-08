@@ -5,6 +5,8 @@ ruby '3.1.2'
 # https://github.com/loopstudio/rails-graphql-api-boilerplate
 # from mark
 gem 'net-smtp', require: false
+gem 'net-imap', require: false
+gem 'net-pop', require: false
 gem "aws-sdk-s3", require: false
 gem 'httparty'
 gem 'google_places'
