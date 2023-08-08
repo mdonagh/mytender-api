@@ -2,6 +2,7 @@ module Mutations
   module Shift
     class Create < Mutations::BaseMutation
       argument :notes, String, required: false
+      argument :bar_name, String, required: false
       argument :address, String, required: false
       argument :recurring, Boolean, required: false
       argument :duration, Int, required: true

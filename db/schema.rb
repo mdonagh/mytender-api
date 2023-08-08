@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_07_29_132024) do
+ActiveRecord::Schema.define(version: 2023_08_08_120110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2023_07_29_132024) do
     t.decimal "longitude", precision: 15, scale: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "bar_name"
     t.index ["latitude", "longitude", "start_time"], name: "index_shifts_on_latitude_and_longitude_and_start_time"
     t.index ["user_id"], name: "index_shifts_on_user_id"
   end
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 2023_07_29_132024) do
     t.string "headshot_url"
     t.integer "kind"
     t.string "description"
+    t.boolean "seeded"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

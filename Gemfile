@@ -7,9 +7,10 @@ ruby '3.1.2'
 gem 'net-smtp', require: false
 gem "aws-sdk-s3", require: false
 gem 'httparty'
+gem 'google_places'
+gem 'faker', '~> 2.21.0'
 
 gem 'pry'
-gem 'httparty'
 gem 'awesome_print'
 gem 'geocoder'
 gem 'apollo_upload_server'
@@ -48,7 +49,6 @@ group :development, :test do
   gem 'bullet', '~> 7.0.2'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.2.0'
-  gem 'faker', '~> 2.21.0'
   gem 'rspec-rails', '~> 5.1.2'
 end
 

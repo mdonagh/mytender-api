@@ -4,6 +4,7 @@
 #
 #  id         :bigint           not null, primary key
 #  address    :string
+#  bar_name   :string
 #  duration   :integer
 #  latitude   :decimal(15, 10)  indexed => [longitude, start_time]
 #  longitude  :decimal(15, 10)  indexed => [latitude, start_time]

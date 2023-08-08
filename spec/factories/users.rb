@@ -9,6 +9,7 @@
 #  headshot_url    :string
 #  kind            :integer
 #  password_digest :string
+#  seeded          :boolean
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
