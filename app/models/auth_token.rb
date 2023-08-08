@@ -8,6 +8,8 @@ class AuthToken
   end
 
   def self.verify(token)
+    puts KEY
+    puts token
     decoded_token = JWT.decode(token, KEY, true, { algorithm: ALGORITHM })
 
     User.find_by(id: decoded_token.first['user_id'])
