@@ -11,7 +11,8 @@ class Seed
       user = User.create!(email: email,
                           password: password,
                           headshot_url: headshot_url,
-                          banner_url: banner_url)
+                          banner_url: banner_url,
+                          description: Faker::Company.bs)
       Shift.create!(user: user,
                     notes: Faker::Company.bs,
                     latitude: spot.lat,
