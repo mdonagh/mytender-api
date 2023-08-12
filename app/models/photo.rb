@@ -14,6 +14,8 @@ require 'aws-sdk-s3'
 #  index_photos_on_user_id  (user_id)
 #
 class Photo < ApplicationRecord
+
+  BUCKET_NAME = 'mytender-bucket'
   enum kind: [ :headshot, :banner ]
 
   after_create :denormalize_url
@@ -29,18 +31,21 @@ class Photo < ApplicationRecord
   belongs_to :user
 
   def presigned_url
-    s3 = Aws::S3::Client.new(
-      region:               'us-east-1',
-      access_key_id:        ENV.fetch('AWS_KEY'),
-      secret_access_key:    ENV.fetch('AWS_SECRET')
-    )
+    bucket = Aws::S3::Bucket.new(BUCKET_NAME)
+    bucket.object(s3_key).presigned_url(:put)
 
-    Aws::S3::Presigner.new(client: s3).presigned_url(
-      :put_object,
-      bucket: bucket,
-      key: s3_key,
-      acl: "public-read"
-    )
+    # s3 = Aws::S3::Client.new(
+    #   region:               'us-east-1',
+    #   access_key_id:        ENV.fetch('AWS_KEY'),
+    #   secret_access_key:    ENV.fetch('AWS_SECRET')
+    # )
+
+    # Aws::S3::Presigner.new(client: s3).presigned_url(
+    #   :put_object,
+    #   bucket: bucket,
+    #   key: s3_key,
+    #   acl: "public-read"
+    # )
   end
 
   def s3_key
