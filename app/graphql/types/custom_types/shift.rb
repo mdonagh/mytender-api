@@ -5,6 +5,8 @@ module Types
       field :user, Types::CustomTypes::User, null: true
       field :notes, String, null: true
       field :bar_name, String, null: true
+      field :distance, Float, null: true
+
       field :address, String, null: true
       field :latitude, String, null: true, method: :lat_as_string
       field :longitude, String, null: true, method: :long_as_string
