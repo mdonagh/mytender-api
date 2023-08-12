@@ -26,6 +26,8 @@ class Shift < ApplicationRecord
 
   belongs_to :user
 
+  attr_accessor :distance
+
   def lat_as_string
     latitude.to_s
   end

@@ -4,7 +4,9 @@ module Types
     field :nearby_shifts, resolver: Queries::NearbyShifts do
       argument :latitude, Float, required: true
       argument :longitude, Float, required: true
+      argument :radius, Integer, required: false
     end
+
     field :shifts, resolver: Queries::Shifts do
       argument :near, [Float], required: false
       argument :personal, Boolean, required: false
