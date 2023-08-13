@@ -12,6 +12,12 @@ module Types
       argument :personal, Boolean, required: false
     end
 
+    field :rideshare, resolver: Queries::RideShare do
+      argument :lat, Float, required: true
+      argument :lng, Float, required: true
+      argument :shiftId, ID, required: true
+    end
+
     field :shift, resolver: Queries::ShowShift do
       argument :id, ID, required: true
     end
