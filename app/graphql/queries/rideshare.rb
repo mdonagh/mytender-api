@@ -1,5 +1,5 @@
 module Queries
-  class RideShare < Queries::BaseQuery
+  class Rideshare < Queries::BaseQuery
     type Types::CustomTypes::Rideshare, null: false
 
     def resolve(lat:, lng:, shift_id:)
