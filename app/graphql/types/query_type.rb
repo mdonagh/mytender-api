@@ -12,7 +12,7 @@ module Types
       argument :personal, Boolean, required: false
     end
 
-    field :rideshare, resolver: Queries::Rideshare do
+    field :automobile, resolver: Queries::Uber do
       argument :lat, Float, required: true
       argument :lng, Float, required: true
       argument :shift_id, ID, required: true
