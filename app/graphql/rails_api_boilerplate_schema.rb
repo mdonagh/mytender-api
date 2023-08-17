@@ -14,7 +14,7 @@ class RailsApiBoilerplateSchema < GraphQL::Schema
 
   mutation(Types::MutationType)
   query(Types::QueryType)
-  subscription(Types::SubscriptionType)
+  # subscription(Types::SubscriptionType)
 
   rescue_from(ActiveRecord::RecordInvalid) do |exception|
     errors = exception.record.errors.messages.to_json
