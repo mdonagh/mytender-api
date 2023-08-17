@@ -4,8 +4,8 @@ module Queries
 
     def resolve(lat:, lng:, shift_id:)
       Rails.logger.error("got here!!!")
-      uber = Uber.new(lat, lng, shift_id)
-      {uber: uber.uber, lyft: uber.lyft}
+      rideshare = Rideshare.new(lat, lng, shift_id)
+      {uber: rideshare.uber, lyft: rideshare.lyft}
     end
   end
 end

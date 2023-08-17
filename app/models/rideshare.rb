@@ -1,4 +1,4 @@
-class Uber
+class Rideshare
 
   UBER_CLIENT_ID = "vi216c6aXNHZBxp4Td4OmFADiYtSwWf3"
   LYFT_CLIENT_ID = "LYdnUr1OWKnh"

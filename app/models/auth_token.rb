@@ -10,9 +10,13 @@ class AuthToken
   def self.verify(token)
     puts KEY
     puts token
-    return User.last
-    # decoded_token = JWT.decode(token, KEY, true, { algorithm: ALGORITHM })
 
-    # User.find_by(id: decoded_token.first['user_id'])
+    if !token
+      raise GraphQL::ExecutionError, "Missing auth token"
+    end
+
+    decoded_token = JWT.decode(token, KEY, true, { algorithm: ALGORITHM })
+
+    User.find_by(id: decoded_token.first['user_id'])
   end
 end
