@@ -11,8 +11,8 @@ class AuthToken
     puts KEY
     puts token
     return User.last
-    decoded_token = JWT.decode(token, KEY, true, { algorithm: ALGORITHM })
+    # decoded_token = JWT.decode(token, KEY, true, { algorithm: ALGORITHM })
 
-    User.find_by(id: decoded_token.first['user_id'])
+    # User.find_by(id: decoded_token.first['user_id'])
   end
 end
