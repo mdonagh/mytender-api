@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2023_08_17_163731) do
     t.integer "kind"
     t.string "description"
     t.boolean "seeded"
-    t.string "payment_intent_id"
+    t.string "subscription_id"
     t.string "customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end

@@ -10,12 +10,13 @@ module Queries
       puts latitude
       puts longitude
 
-      if !context[:user].seeded
+      result = Shift.includes([:user]).near([latitude, longitude], radius, units: :km)
+
+      if result.none?
         context[:user].update(seeded: true)
         Seed.populate(latitude, longitude)
+        result = Shift.includes([:user]).near([latitude, longitude], radius, units: :km)
       end
-
-      result = Shift.includes([:user]).near([latitude, longitude], radius, units: :km)
 
       if radius != 2
         result.each do |shift|

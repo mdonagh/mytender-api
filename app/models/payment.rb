@@ -1,33 +1,35 @@
 class Payment
 
-  STRIPE_KEY = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
-  STRIPE_PK = "pk_test_TYooMQauvdEDq54NiTphI7jx"
+  STRIPE_KEY = "sk_test_51Ng6T9FkuyPevR8M7AmXZ3s9cCcrNgHSWEeOjjCMFOMnarZIUEbMwKOYbFTT9bbG6OJuhacivT3P3ljaOcd88uOm00Lyy6ItdN"
+  STRIPE_PK = "pk_test_51Ng6T9FkuyPevR8MA9bhsHnJIGkbKihsHVmPK3Ps6zC3A8NKZPAnefhskAEhIckIZamAsnYSJW0uaK3V4sFm2HSS00lDuL6j1H"
+  PRICE_ID = 'price_1NgTbKFkuyPevR8MqQTRraDO'
 
   attr_accessor :payment_intent, :ephemeral_key, :customer, :publishable_key
 
   def initialize(user)
     Stripe.api_key = STRIPE_KEY
       # Use an existing Customer ID if this is a returning customer
-      customer = Stripe::Customer.create
-      ephemeral_key = Stripe::EphemeralKey.create({
-        customer: customer['id'],
-      }, {stripe_version: '2023-08-16'})
-      payment_intent = Stripe::PaymentIntent.create({
-        amount: 1099,
-        currency: 'usd',
-        customer: customer['id'],
-        # In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
-        automatic_payment_methods: {
-          enabled: true,
-        }
-      })
+    customer = Stripe::Customer.create
+    ephemeral_key = Stripe::EphemeralKey.create({
+    customer: customer['id'],
+    }, {stripe_version: '2023-08-16'})
 
-   @payment_intent = payment_intent['client_secret']
+      subscription = Stripe::Subscription.create(
+        customer: customer['id'],
+        items: [{
+          price: PRICE_ID,
+        }],
+        payment_behavior: 'default_incomplete',
+        payment_settings: {save_default_payment_method: 'on_subscription'},
+        expand: ['latest_invoice.payment_intent']
+      )
+
+   @payment_intent = subscription.latest_invoice.payment_intent.client_secret
    @ephemeral_key = ephemeral_key['secret']
    @customer = customer['id']
    @publishable_key = STRIPE_PK
 
-   user.update(payment_intent_id: @payment_intent, customer_id: customer['id'])
+   user.update(subscription_id: subscription.id, customer_id: customer['id'])
    ap @payment_intent
    ap @ephemeral_key
    ap @customer
