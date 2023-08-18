@@ -11,6 +11,7 @@ gem "aws-sdk-s3", require: false
 gem 'httparty'
 gem 'google_places'
 gem 'faker', '~> 2.21.0'
+gem 'stripe'
 
 gem 'pry'
 gem 'awesome_print'

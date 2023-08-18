@@ -2,7 +2,7 @@ module UserRetriever
   extend ActiveSupport::Concern
 
   def current_user
-    if "createUser" == JSON.parse(request.body.string)["operationName"]
+    if request.path == "/v2" && "createUser" == JSON.parse(request.body.string)["operationName"]
       return
     end
 

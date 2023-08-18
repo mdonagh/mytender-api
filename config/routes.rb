@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   mount ActionCable.server, at: '/cable'
   post '/graphql', to: 'graphql#execute'
+  post '/payment-sheet', to: 'payments#sheet'
+
 end
