@@ -19,7 +19,7 @@ class Payment
         items: [{
           price: PRICE_ID,
         }],
-        trial_end: 1.month.from_now.to_i,
+        billing_cycle_anchor: 1.month.from_now.to_i,
         payment_behavior: 'default_incomplete',
         payment_settings: {save_default_payment_method: 'on_subscription'},
         expand: ['latest_invoice.payment_intent']
@@ -31,9 +31,11 @@ class Payment
    @publishable_key = STRIPE_PK
 
    user.update(subscription_id: subscription.id, customer_id: customer['id'])
-   ap @payment_intent
-   ap @ephemeral_key
-   ap @customer
-   ap @publishable_key
+  end
+
+
+  def self.cancel_subscription(user)
+    Stripe.api_key = STRIPE_KEY
+    Stripe::Subscription.cancel(user.subscription_id)
   end
 end

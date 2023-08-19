@@ -2,18 +2,19 @@
 #
 # Table name: users
 #
-#  id              :bigint           not null, primary key
-#  banner_url      :string
-#  description     :string
-#  email           :citext           not null, indexed
-#  headshot_url    :string
-#  kind            :integer
-#  password_digest :string
-#  seeded          :boolean
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
-#  customer_id     :string
-#  subscription_id :string
+#  id                  :bigint           not null, primary key
+#  banner_url          :string
+#  cancellation_reason :string
+#  description         :string
+#  email               :citext           not null, indexed
+#  headshot_url        :string
+#  kind                :integer
+#  password_digest     :string
+#  seeded              :boolean
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  customer_id         :string
+#  subscription_id     :string
 #
 # Indexes
 #
