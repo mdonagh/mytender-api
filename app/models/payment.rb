@@ -19,6 +19,7 @@ class Payment
         items: [{
           price: PRICE_ID,
         }],
+        trial_end: 1.month.from_now.to_i,
         payment_behavior: 'default_incomplete',
         payment_settings: {save_default_payment_method: 'on_subscription'},
         expand: ['latest_invoice.payment_intent']
