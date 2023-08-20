@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_08_19_133612) do
+ActiveRecord::Schema.define(version: 2023_08_20_152312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 2023_08_19_133612) do
     t.string "subscription_id"
     t.string "customer_id"
     t.string "cancellation_reason"
+    t.string "venmo"
+    t.string "cashapp"
+    t.string "instagram"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

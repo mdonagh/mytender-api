@@ -7,6 +7,9 @@ module Types
       field :banner_url, String, null: true
       field :headshot_url, String, null: true
       field :description, String, null: true
+      field :venmo, String, null: true
+      field :instagram, String, null: true
+      field :cashapp, String, null: true
     end
   end
 end

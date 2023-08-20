@@ -7,10 +7,15 @@ class Seed
       password = SecureRandom.hex
       headshot_url =  "https://s3.amazonaws.com/mytender-bucket/development/6/Photo-headshot-12"
       banner_url =  "https://s3.amazonaws.com/mytender-bucket/development/6/Photo-banner-11"
-
+      cashapp = "$markdonahue89"
+      venmo = "Mark-Donahue-9"
+      instagram = "bob_peters"
       user = User.create!(email: email,
                           password: password,
                           headshot_url: headshot_url,
+                          cashapp: cashapp,
+                          venmo: venmo,
+                          instagram: instagram,
                           banner_url: banner_url,
                           description: Faker::Company.bs)
       Shift.create!(user: user,

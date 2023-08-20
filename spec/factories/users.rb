@@ -5,12 +5,15 @@
 #  id                  :bigint           not null, primary key
 #  banner_url          :string
 #  cancellation_reason :string
+#  cashapp             :string
 #  description         :string
 #  email               :citext           not null, indexed
 #  headshot_url        :string
+#  instagram           :string
 #  kind                :integer
 #  password_digest     :string
 #  seeded              :boolean
+#  venmo               :string
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  customer_id         :string
