@@ -19,7 +19,7 @@ gem 'geocoder'
 gem 'apollo_upload_server'
 
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'rails', '~> 6.1.5'
+gem 'rails', '~> 6.1.7'
 
 # WebServer
 gem 'puma', '~> 5.6'
