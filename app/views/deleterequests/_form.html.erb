@@ -1,0 +1,27 @@
+<%= form_with(model: deleterequest) do |form| %>
+  <% if deleterequest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(deleterequest.errors.count, "error") %> prohibited this deleterequest from being saved:</h2>
+
+      <ul>
+        <% deleterequest.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comments %>
+    <%= form.text_area :comments %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
