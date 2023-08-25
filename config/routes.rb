@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post '/graphql', to: 'graphql#execute'
   post '/payment-sheet', to: 'payments#sheet'
 
+  get '/privacy', to: 'privacy#show'
 end
